@@ -1,10 +1,5 @@
-# Use a base image with Ubuntu
-FROM ubuntu
-
-# Install OpenJDK 11
-RUN apt-get update && \
-    apt-get install -y openjdk-11-jre-headless && \
-    apt-get clean;
+# Use a base image with OpenJDK 11
+FROM openjdk:11-jre-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -15,3 +10,4 @@ COPY webapp/target/webapp.war /app/
 
 # Command to run the application
 CMD ["java", "-jar", "server.jar"]
+
