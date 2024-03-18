@@ -17,7 +17,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    docker.build('my-java-app', '-f Dockerfile .') // Build Docker image using Dockerfile
+                    docker.build('my-java-app-jar', '-f Dockerfile .') // Build Docker image using Dockerfile
                 }
             }
         }
