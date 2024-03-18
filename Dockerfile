@@ -7,5 +7,11 @@ WORKDIR /app
 # Copy the JAR file into the container
 COPY target/*.jar /app/
 
-# Command to run the application
-CMD ["java", "-jar", "*.jar"]
+# Copy script for dynamically finding JAR file
+COPY find-jar.sh /app/
+
+# Make script executable
+RUN chmod +x /app/find-jar.sh
+
+# Command to run the application using the script
+CMD ["/app/find-jar.sh"]
